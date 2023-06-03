@@ -11,24 +11,7 @@ public class Calculator
     }
 
     private int _memory;
-
-    public string Memory
-    {
-        get { return _memory.ToString(); }
-        set
-        {
-            if (int.TryParse(value, out int result))
-            {
-                _memory = result;
-            }
-            else
-            {
-                Console.WriteLine("Invalid Input. Please input a valid integer.");
-            }
-        }
-    }
-
-    public int Num;
+    public int Num { get; set; }
 
     public static void PerformOperation(Calculator calculator, Operation operation)
     {
@@ -57,12 +40,15 @@ public class Calculator
         }
     }
 
-
     public int Multiply(int Num)
     {
+        if (_memory == 0)
+        {
+            _memory = 1;
+        }
         this.Num
             = Num;
-        return this._memory *= this.Num;
+        return _memory *= this.Num;
     }
 
     public int Divide(int Num)
@@ -72,7 +58,7 @@ public class Calculator
             this.Num
                 = Num;
 
-            return this._memory /= this.Num;
+            return _memory /= this.Num;
         }
 
         return 0;
@@ -82,18 +68,18 @@ public class Calculator
     {
         this.Num
             = Num;
-        return this._memory += this.Num;
+        return _memory += this.Num;
     }
 
     public int Subtract(int Num)
     {
         this.Num
             = Num;
-        return this._memory -= this.Num;
+        return _memory -= this.Num;
     }
 
     public void Result()
     {
-        Console.WriteLine(this.Memory);
+        Console.WriteLine(_memory);
     }
 }

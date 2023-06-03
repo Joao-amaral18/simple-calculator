@@ -2,16 +2,10 @@
 
 using System.Threading.Channels;
 using calc;
-
-var calc = new Calculator();
-Console.WriteLine("---  Type the operation you want to perform");
-Console.WriteLine("Type 1 for Sum");
-Console.WriteLine("Type 2 for Subtract");
-Console.WriteLine("Type 3 for Multiply");
-Console.WriteLine("Type 4 for Divide");
-Console.WriteLine("Type 5 for the Result");
+using static calc.Calculator;
 
 string operation;
+var calculator = new Calculator();
 
 do
 {
@@ -20,29 +14,30 @@ do
     Console.WriteLine("Type 2 for Subtract");
     Console.WriteLine("Type 3 for Multiply");
     Console.WriteLine("Type 4 for Divide");
-    Console.WriteLine("Type 5 to Exit");
+    Console.WriteLine("Type 5 for the Result");
+    Console.WriteLine("Type 0 to exit");
 
     operation = Console.ReadLine();
 
     switch (operation)
     {
         case "1":
-            Calculator.PerformOperation(calculator, Operation.Sum);
+            PerformOperation(calculator, Operation.Sum);
             break;
         case "2":
-            Calculator.PerformOperation(calculator, Operation.Subtract);
+            PerformOperation(calculator, Operation.Subtract);
             break;
         case "3":
-            Calculator.PerformOperation(calculator, Operation.Multiply);
+            PerformOperation(calculator, Operation.Multiply);
             break;
         case "4":
-            Calculator.PerformOperation(calculator, Operation.Divide);
+            PerformOperation(calculator, Operation.Divide);
             break;
         case "5":
-            Calculator.PerformOperation(calculator, Operation.Result);
+            calculator.Result();
             break;
         default:
             Console.WriteLine("Invalid input. Please try again.");
             break;
     }
-} while (operation != "5");
+} while (operation != "0");
