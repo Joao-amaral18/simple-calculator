@@ -9,35 +9,41 @@ var calculator = new Calculator();
 
 do
 {
-    Console.WriteLine("---  Type the operation you want to perform");
-    Console.WriteLine("Type 1 for Sum");
-    Console.WriteLine("Type 2 for Subtract");
-    Console.WriteLine("Type 3 for Multiply");
-    Console.WriteLine("Type 4 for Divide");
-    Console.WriteLine("Type 5 for the Result");
-    Console.WriteLine("Type 0 to exit");
+    Console.WriteLine("---  Digite o operador que deseja performar");
+    Console.WriteLine("+");
+    Console.WriteLine("-");
+    Console.WriteLine("*");
+    Console.WriteLine("/");
+    Console.WriteLine("Digite = para obter o Resultado");
+    Console.WriteLine("Digite 0 para zerar o resultado");
 
     operation = Console.ReadLine();
 
     switch (operation)
     {
-        case "1":
+        case "+":
             PerformOperation(calculator, Operation.Sum);
             break;
-        case "2":
+        case "-":
             PerformOperation(calculator, Operation.Subtract);
             break;
-        case "3":
+        case "*":
             PerformOperation(calculator, Operation.Multiply);
             break;
-        case "4":
+        case "/":
             PerformOperation(calculator, Operation.Divide);
             break;
-        case "5":
+        case "=":
             calculator.Result();
             break;
+        case "0":
+            calculator.ZeraValor();
+            break;
+        case "exit":
+            Console.WriteLine("Adeus!");
+            break;
         default:
-            Console.WriteLine("Invalid input. Please try again.");
+            Console.WriteLine("Input invalido. Tente novamente.");
             break;
     }
-} while (operation != "0");
+} while (operation != "exit");

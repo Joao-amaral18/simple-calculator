@@ -80,6 +80,15 @@ public class Calculator
 
     public void Result()
     {
-        Console.WriteLine(_memory);
+        Console.WriteLine($"Resultado = {_memory}");
+        Console.WriteLine("Deseja continuar? S/N");
+        var continua = Console.ReadLine();
+        if (continua.ToUpper() != "S" )
+            Environment.Exit(0);
+    }
+
+    public void ZeraValor()
+    {
+        _memory = 0;
     }
 }
